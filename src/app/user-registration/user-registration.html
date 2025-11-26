@@ -1,4 +1,4 @@
-<div class="registration-container">
+<div class="registration-container" xmlns="http://www.w3.org/1999/html">
 	<h2>User Registration</h2>
 	<form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
 		<div class="form-group">
@@ -23,5 +23,7 @@
 			<div *ngIf="registrationForm.value.password !== registrationForm.value.confirmPassword && confirmPassword.touched" class="error">Passwords do not match.</div>
 		</div>
 		<button type="submit" class="submit-btn" [disabled]="registrationForm.invalid">Register</button>
+    <br>
+    <button type="button" class="submit-btn" (click)="goToUsers()">View Users</button>
 	</form>
 </div>

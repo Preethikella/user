@@ -9,11 +9,15 @@ const STORAGE_KEY = 'app_users_v1';
 
 @Injectable({ providedIn: 'root' })
 export class RegistrationService {
-  save(user: User) {
-    const users = this.getAll();
-    users.push(user);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+save(user: User): boolean {
+  const users = this.getAll();
+  if (users.some(u => u.email === user.email)) {
+    return false;
   }
+  users.push(user);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+  return true;
+}
 
   getAll(): User[] {
     try {
