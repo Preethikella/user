@@ -1,0 +1,18 @@
+<div class="fetch-users fetch-container form-group" xmlns="http://www.w3.org/1999/html">
+  <input id="email" name="email" #emailInput placeholder="Enter email" class="form-control"/>
+    @if (showErroMessage) {
+    {{error}}
+  }
+  <br>
+  <button class="submit-btn" (click)="fetchByEmail(emailInput.value)">Fetch by Email</button>
+
+  @if (usersByEmail) {
+    <div>
+      <h3>User Data</h3>
+      <ul>
+          <li>
+            {{ usersByEmail.name }} - {{ usersByEmail.email }}
+          </li>
+      </ul>
+    </div>
+  }

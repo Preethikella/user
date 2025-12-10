@@ -3,16 +3,21 @@
     <h3>Registered Users</h3>
     <ul>
       @for (user of users; track user.id) {
-        <li>
-          {{ user.name }} - {{ user.email }}
-        </li>
-      }
+      <li>
+        <input 
+            type="checkbox" 
+              (change)="toggleSelection(user.email, $event.target.checked)" 
+      />
+    {{ user.name }} - {{ user.email }}
+  </li>
+}     
+
     </ul>
   </div>
 } @else {
   <p>No users registered yet.</p>
 }
 
- <button type="button" class="submit-btn" (click)="goToRegistration()">Registration</button>
-  <br>
- <button type="button" class="submit-btn" (click)="ClearData()">Clear</button>
+<button type="button" class="submit-btn" (click)="goToRegistration()">Registration</button>
+<br>
+<button type="button" class="submit-btn" (click)="ClearData()">Delete</button>

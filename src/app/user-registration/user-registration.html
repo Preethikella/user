@@ -24,6 +24,9 @@
 		</div>
 		<button type="submit" class="submit-btn" [disabled]="registrationForm.invalid">Register</button>
     <br>
-    <button type="button" class="submit-btn" (click)="goToUsers()">View Users</button>
+    <button type="button" class="submit-btn" (click)="goToUsers()">View All Users</button>
+
+	<button type="button" class="submit-btn" (click)="goToFetchUsers()">Search Users</button>
 	</form>
+	<button type="button" class="submit-btn" (click)="updateUsers()">Update Users</button>
 </div>
